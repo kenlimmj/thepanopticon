@@ -10,11 +10,15 @@ body {
     @include media($computer) {
       @include pad($column*1.618 0 $column*1.618 0); // Pushes content down by an artistically-mandated ratio
     }
+    @include media($tv) {
+      @include pad($column*1.618 0 $column*1.618 0); // Pushes content down by an artistically-mandated ratio
+    }
   }
 }
 
 section {
   @include span-columns(6); // Defines a 6-column main block
+  @include pad($column/1.618 0 $column/1.618 0)
 }
 
 article {
