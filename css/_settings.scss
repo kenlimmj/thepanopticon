@@ -1,0 +1,23 @@
+//// GRID ////
+
+@import "neat/neat-helpers";
+
+// User Variables
+$screen-width:    1440; // Optimal/chosen screen-width
+$screen-columns:  17; // Number of columns spanning screen-width (gutters count as columns for this one)
+$margin-columns:  3; // Number of columns to use for the margin
+
+// Change the grid settings
+$column: em($screen-width/$screen-columns); // Calculates the size of each column assuming no gutter
+$gutter: $column; // Creates a gutter equal to the width of the column
+$grid-columns: ($screen-columns - ($margin-columns*2) + 1)/2; // Calculates the real number of columns needed
+$max-width: $column*($screen-columns - $grid-columns); // Implements the Guternberg page construction canon
+
+// Define your breakpoints
+$mobile:    new-breakpoint(max-width em(639));
+$tablet:    new-breakpoint(min-width em(640) max-width em(1024)); // Breakpoint for tablets and phones
+$computer:  new-breakpoint(min-width em(1025) max-width em(1440)); // Breakpoint for computers
+$tv:        new-breakpoint(min-width em(1441)); // Breakpoint for bloody large screens
+
+// Debugging
+// $visual-grid: true; // Enables a grid-overlay in the background

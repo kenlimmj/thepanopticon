@@ -1,0 +1,58 @@
+body {
+  @include outer-container; // Sets a max-width on the body
+  &.push-golden {
+    @include media($mobile) {
+      @include pad($column/1.618 0 $column/1.618 0); // Pushes content down by an artistically-mandated ratio
+    }
+    @include media($tablet) {
+      @include pad($column 0 $column 0); // Pushes content down, albeit without the artistic ratio :(
+    }
+    @include media($computer) {
+      @include pad($column*1.618 0 $column*1.618 0); // Pushes content down by an artistically-mandated ratio
+    }
+  }
+}
+
+section {
+  @include span-columns(6); // Defines a 6-column main block
+}
+
+article {
+  @include media($mobile) {
+    @include pad(0 $column/2 0 $column/2); // Pads the sides of the screen on a mobile device
+  }
+  @include media($tablet) {
+    @include span-columns(4 of 6); // Pads the sides of the screen on a tablet
+    @include shift(1);
+  }
+  @include media($computer) {
+    @include span-columns(3 of 6);  // Defines the basic one-half column
+    @include omega(2n);             // Automagically removes every second right gutter (for stacking)
+    &:only-child {
+      @include fill-parent; // Expands the column if it's the only one in the section
+    }
+    &:only-of-type:not(:only-child) { // Voodoo to select first element in article-aside pair
+      @include span-columns(4 of 6);  // Expands the half-page column if it appears before the side column
+    }
+  }
+}
+
+aside {
+  @include media($mobile) {
+    @include pad(0 $column/2 0 $column/2); // Pads the sides of the screen on a mobile device
+  }
+  @include media($tablet) {
+    @include span-columns(4 of 6); // Pads the sides of the screen on a tablet
+    @include shift(1);
+  }
+  @include media($computer) {
+    @include span-columns(2 of 6);  // Defines the basic one-third column
+    @include omega(3n);             // Automagically removes every third right gutter (for stacking)
+    &:only-child {
+      @include shift(4); // Pushes the column all the way to the right if it's the only one in the section
+    }
+    &+article {
+      @include span-columns(4 of 6); // Expands the half-page column if it appears after the side column
+    }
+  }
+}

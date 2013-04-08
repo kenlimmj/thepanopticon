@@ -1,0 +1,43 @@
+// Styles the Google Chrome Frame prompt for when it's called
+.chromeframe {
+    margin: 0.2em 0;
+    background: #ccc;
+    color: #000;
+    padding: 0.2em 0;
+}
+
+// Removes the text shadow in the OS selection highlight
+::-moz-selection {
+    background: #b3d4fc;
+    text-shadow: none;
+}
+
+// Removes the text shadow in the OS selection highlight
+::selection {
+    background: #b3d4fc;
+    text-shadow: none;
+}
+
+// Increases the clickable area around paragraph links
+p a {
+    margin: -.5em;
+    padding: .5em;
+    position: relative;
+}
+
+// Adds a nice fade effect to links
+a {
+  -webkit-transition: 0.15s color ease;
+     -moz-transition: 0.15s color ease;
+       -o-transition: 0.15s color ease;
+          transition: 0.15s color ease;
+  text-decoration: none !important;
+}
+
+// Fixes iOS Textarea rendering problem
+textarea[contenteditable] { -webkit-appearance: none; }
+
+// Allows only vertical resizing of textareas
+textarea {
+    resize: vertical;
+}

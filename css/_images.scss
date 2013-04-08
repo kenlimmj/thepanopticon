@@ -1,0 +1,6 @@
+img {
+  image-rendering:-moz-crisp-edges; // Makes images in firefox look sharp
+  image-rendering:-webkit-optimize-contrast; // Optimizes image contrast in webkit
+  image-rendering:crisp-edges; // Prefixless standard for sharp images
+  vertical-align: middle; // Removes the gap between images and the bottom of their containers
+}
