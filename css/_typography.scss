@@ -9,6 +9,8 @@
   font-style: normal;
 }
 
+$body-copy-color: #2B2E36;
+$heading-color: #2E362B;
 $font-family: BitterRegular,serif; // Redeclare font-family variable to add our own font-face
 $font-properties: $weight, $line-height, $font-size, $font-family; // Stole this from Typeplate to reinitialize the var
 
@@ -24,5 +26,12 @@ html {
   }
   @include media($tablet) {
     font-size: 95%; // Chops the font-size by 5% on tablet-sized devices so it ain't too yo' mamma
+  }
+}
+
+a {
+  color: #9E373E;
+  &:hover {
+    color: #C45A3B;
   }
 }

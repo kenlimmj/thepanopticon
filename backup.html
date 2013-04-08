@@ -1,0 +1,217 @@
+<body style="background-image:url('http://static.tumblr.com/ncqdca0/yXhm807ni/texture2.png'); background-repeat:repeat;">
+<div class="row" style="padding-top:60px;">
+<div class="four columns push-eight">
+  <div class="aligncenter">
+  <a href="/"><img src="http://static.tumblr.com/ncqdca0/Mf7m806xv/panopticon.png"></a>
+  <h3>{Title}</h3>
+  <h5 class="subheader">{Description}</h5>
+  <ul class="side-nav">
+    <li><a href="http://twitter.com/kenlimmj" target="_blank"><i class="icon-twitter"></i> @kenlimmj</a></li>
+    <li><a href="http://github.com/kenlimmj" target="_blank"><i class="icon-github"></i> Github Repo.</a></li>
+    <li><a href="http://linkedin.com/kenlimmj" target="_blank"><i class="icon-linkedin"></i> LinkedIn</a></li>
+    <li class="divider"></li>
+    {block:HasPages}
+    {block:Pages}
+      <li><a href="{URL}">{Label}</a></li>
+    {/block:Pages}
+    {/block:HasPages}
+  </ul><!--sidenav-->
+  </div><!--aligncenter-->
+  {block:Pagination}
+  <div class="row">
+    <div class="eight columns centered">
+    <ul class="pagination">
+        {block:PreviousPage}
+            <li class="arrow"><a href="{PreviousPage}"><i class="icon-chevron-left"></i></a></li>
+        {/block:PreviousPage}
+
+        {block:JumpPagination length="5"}
+            {block:CurrentPage}
+                <li class="current"><a href="{URL}">{PageNumber}</a></li>
+            {/block:CurrentPage}
+
+            {block:JumpPage}
+                <li><a href="{URL}">{PageNumber}</a></li>
+            {/block:JumpPage}
+        {/block:JumpPagination}
+
+        {block:NextPage}
+            <li class="arrow"><a href="{NextPage}"><i class="icon-chevron-right"></i></a></li>
+        {/block:NextPage}
+    </ul><!--pagination-->
+    </div><!--6col-->
+  </div><!--row-->
+  {/block:Pagination}
+</div><!--4col-->
+<div class="eight columns pull-four">
+{block:Posts}
+<div class="panel radius pad0">
+  <div class="pad20">
+  {block:Title}
+  <h3><a href="{Permalink}">{Title}</a></h3>
+  {/block:Title}
+  {block:Date}
+    {block:NewDayDate}
+      <h6 class="subheader"><i class="icon-calendar"></i> {DayOfMonth} {Month} {Year}</h6>
+    {/block:NewDayDate}
+    {block:SameDayDate}
+      <h6 class="subheader"><i class="icon-calendar"></i> {DayOfMonth} {Month} {Year}</h6>
+    {/block:SameDayDate}
+  {/block:Date}
+  </div><!--pad20-->
+  <hr class="margin0">
+
+{block:Text}
+  <div class="pad20">
+    {Body}
+  </div><!--pad20-->
+{/block:Text}
+
+{block:Photo}
+  {LinkOpenTag}
+  <div class="aligncenter"><img src="{PhotoURL-HighRes}"/></div>
+  {LinkCloseTag}
+    {block:Caption}
+    <div class="pad20">
+  {block:Exif}
+    <ul class="link-list">
+        {block:Camera}
+            <li><i class="icon-camera"></i> {Camera}</li>
+        {/block:Camera}
+        {block:Aperture}
+            <li><i class="icon-eye-open"></i> {Aperture}</li>
+        {/block:Aperture}
+        {block:Exposure}
+            <li><i class="icon-adjust"></i> {Exposure}</li>
+        {/block:Exposure}
+        {block:FocalLength}
+            <li><i class="icon-resize-horizontal"></i> {FocalLength}</li>
+        {/block:FocalLength}
+    </ul>
+    {/block:Exif}
+  {Caption}
+  </div><!--pad20-->
+  {/block:Caption}
+{/block:Photo}
+
+{block:Photoset}
+    <div class="photoset">
+    {block:Photos}
+        <img src="{PhotoURL-HighRes}" data-caption="" width="594px">
+    {/block:Photos}
+  </div><!--photoset-->
+  {block:Photos}
+    {block:Exif}
+    <span class="orbit-caption" id="">
+        <ul class="link-list">
+            {block:Camera}
+                <li><i class="icon-camera"></i> {Camera}</li>
+            {/block:Camera}
+            {block:Aperture}
+                <li><i class="icon-eye-open"></i> {Aperture}</li>
+            {/block:Aperture}
+            {block:Exposure}
+                <li><i class="icon-adjust"></i> {Exposure}</li>
+            {/block:Exposure}
+            {block:FocalLength}
+                <li><i class="icon-resize-horizontal"></i> {FocalLength}</li>
+            {/block:FocalLength}
+        </ul>
+    </span>
+    {/block:Exif}
+    {/block:Photos}
+    {block:Caption}
+  <div class="pad10">{Caption}</div><!--pad10-->
+  {/block:Caption}
+{/block:Photoset}
+
+{block:Photoset}
+  <div class="photoset-grid" data-layout="{PhotosetLayout}" data-id="photoset{PostID}">
+    {block:Photos}
+      <img src="{PhotoURL-500}"
+        {block:HighRes}data-highres="{PhotoURL-HighRes}"{/block:HighRes}
+        {block:Caption}alt="{Caption}"{/block:caption} />
+    {/block:Photos}
+  </div>
+  {block:Caption}
+    {Caption}
+  {/block:caption}
+{/block:Photoset}
+
+{block:Quote}
+  <blockquote>
+  {Quote}
+  {block:Source}
+  <cite>{Source}</cite>
+  {/block:Source}
+  </blockquote>
+{/block:Quote}
+
+{block:Link}
+  <!-- <img src="http://api.snapito.com/web/cd49da4eafc19995bb89ea1f56877b352bc488f2/full/{URLEncodedURL}"> -->
+  <div class="pad20">
+  <h3>{Name}</h3>
+  {block:Description}
+    {Description}
+  {/block:Description}
+  <a href="{URL}" class="small success radius button" {Target}>Visit  <i class="icon-chevron-right"></i></a>
+  </div><!--pad20-->
+{/block:Link}
+
+{block:Conversation}
+  <div class="pad20">
+  {block:Lines}
+  <div class="row" style="margin-bottom:5px;">
+    <div class="two columns alignright">
+      {block:Label}<strong>{Label}</strong>{/block:Label}
+    </div><!--2col-->
+    <div class="ten columns">
+      {Line}
+    </div><!--10col-->
+  </div><!--row-->
+  {/block:Lines}
+  </div><!--pad20-->
+{/block:Conversation}
+
+{block:Audio}
+  {block:AlbumArt}
+  <div class="aligncenter"><img src="{AlbumArtURL}"></div>
+  {/block:AlbumArt}
+  <div class="pad20">
+  {block:AudioPlayer}
+    {AudioPlayer}
+  {/block:AudioPlayer}
+  <ul class="link-list">
+    <li><i class="icon-music"></i> {block:TrackName}{TrackName}{/block:TrackName}</li>
+    <li><i class="icon-user"></i> {block:Artist}{Artist}{/block:Artist}</li>
+    <li><i class="icon-th"></i> {block:Album}{Album}{/block:Album}</li>
+  </ul><!--link-list-->
+  {block:Caption}
+  {Caption}
+  {/block:Caption}
+  </div><!--pad20-->
+{/block:Audio}
+
+{block:Video}
+  <div class="flex-video widescreen vimeo">
+  {Video-500}
+  </div>
+  {block:Caption}
+  <div class="pad10">{Caption}</div>
+  {/block:Caption}
+{/block:Video}
+
+  <hr class="margin0">
+  <div class="pad20">
+  <ul class="link-list">
+  <li><a href="http://twitter.com/home?status={block:PostSummary}{PostSummary} - {/block:PostSummary}{ShortURL}" target="_blank"><i class="icon-twitter"></i> Twitter</a></li>
+  <li><a href="http://www.facebook.com/sharer.php?u={Permalink}" target="_blank"><i class="icon-facebook"></i> Facebook</a></li>
+  {block:RebloggedFrom}<li><a href="{ReblogParentURL}"><i class="icon-retweet"></i> {ReblogParentTitle}</a></li>{/block:RebloggedFrom}
+  {block:ContentSource}<li><a href="{SourceURL}"><i class="icon-external-link"></i> {SourceTitle}</a></li>{/block:ContentSource}
+  {block:NoteCount}<li><a href="{Permalink}#notes"><i class="icon-comments"></i> {NoteCount} Notes</a></li>{/block:NoteCount}
+  </ul><!--linklist-->
+  </div><!--pad20-->
+</div><!--panel-->
+{/block:Posts}
+</div><!--8col-->
+</div><!--row-->
