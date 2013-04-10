@@ -2,20 +2,18 @@ body {
   @include outer-container; // Sets a max-width on the body
 }
 
-section {
-  &.push-golden {
-    @include media($mobile) {
-      @include pad($column/1.618 0 $column/1.618 0); // Pushes content down by an artistically-mandated ratio
-    }
-    @include media($tablet) {
-      @include pad($column 0 $column 0); // Pushes content down, albeit without the artistic ratio :(
-    }
-    @include media($computer) {
-      @include pad($column*1.618 0 $column*1.618 0); // Pushes content down by an artistically-mandated ratio
-    }
-    @include media($tv) {
-      @include pad($column*1.618*1.618 0 $column*1.618 0); // Pushes content down by an artistically-mandated ratio
-    }
+.push-golden {
+  @include media($mobile) {
+    @include pad($column/1.618/1.618 0 0 0); // Pushes content down by an artistically-mandated ratio
+  }
+  @include media($tablet) {
+    @include pad($column/1.618 0 0 0); // Pushes content down, albeit without the artistic ratio :(
+  }
+  @include media($computer) {
+    @include pad($column/1.618 0 0 0); // Pushes content down by an artistically-mandated ratio
+  }
+  @include media($tv) {
+    @include pad($column 0 0 0); // Pushes content down by an artistically-mandated ratio
   }
 }
 
@@ -59,7 +57,19 @@ aside {
   }
 }
 
-footer {
-  @include span-columns(10);
-  @include shift(3);
+header,footer {
+  @include media($mobile) {
+    @include span-columns(14);
+    @include shift(1);
+    @include pad($column/1.618/1.618 0 0 0);
+  }
+  @include media($tablet) {
+    @include span-columns(12);
+    @include shift(2);
+    @include pad($column/1.618 0 0 0);
+  }
+  @include media($computer) {
+    @include span-columns(10);
+    @include shift(3);
+  }
 }

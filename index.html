@@ -7,142 +7,194 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <title>
-    {block:SearchPage}{lang:Search results for SearchQuery} - {/block:SearchPage}{block:PostSummary}{PostSummary} - {/block:PostSummary}{Title}
+    {block:SearchPage}{lang:Search results for SearchQuery} - {/block:SearchPage}{block:PostSummary}{PostSummary} - {/block:PostSummary}{Title}{block:PostTitle} - {PostTitle}{/block:PostTitle}
   </title>
-  <meta name="author" content="Lim Mingjie Kenneth">
+  <meta name="author" content="pyaeronrg">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta property="og:type" content="blog">
+  {block:Description}
+  <meta name="description" content="{MetaDescription}" />
+  {/block:Description}
+  {block:PermalinkPage}
+  <meta property="og:title" content="{block:PostSummary}{PostSummary}{/block:PostSummary}" />
+  {block:Posts}
+  {block:Photo}
+  <meta property="og:image" content="{PhotoURL-75sq}">
+  {/block:Photo}
+  {block:Text}
+  <meta property="og:image" content="{PortraitURL-128}">
+  {/block:Text}
+  {block:Photoset}
+  <meta property="og:image" content="{PortraitURL-128}">
+  {/block:Photoset}
+  {block:Quote}
+  <meta property="og:image" content="{PortraitURL-128}">
+  {/block:Quote}
+  {block:Link}
+  <meta property="og:image" content="{PortraitURL-128}">
+  {/block:Link}
+  {block:Chat}
+  <meta property="og:image" content="{PortraitURL-128}">
+  {/block:Chat}
+  {block:Video}
+  <meta property="og:image" content="{PortraitURL-128}">
+  {/block:Video}
+  {/block:Posts}
+  {/block:PermalinkPage}
+  {block:IndexPage}
+  <meta property="og:title" content="{block:Description}{MetaDescription}{/block:Description}" />
+  <meta property="og:image" content="{PortraitURL-128}">
+  {/block:IndexPage}
   <meta property="og:site_name" content="{Title}">
   <link rel="dns-prefetch" href="//fonts.googleapis.com">
   <link rel="dns-prefetch" href="//static.tumblr.com">
   <link rel="dns-prefetch" href="//assets.tumblr.com">
   <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Bitter">
-  <link rel="stylesheet" href="css/main.css">
-  <!-- <link rel="stylesheet" href="http://static.tumblr.com/ncqdca0/1b5mkxzhn/main.css"> -->
+  <link rel="stylesheet" href="http://static.tumblr.com/ncqdca0/kEpml1j4k/main.css">
   <link rel="shortcut icon" href="{Favicon}">
-  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144x144-precomposed.png">
-  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/apple-touch-icon-114x114-precomposed.png">
-  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/apple-touch-icon-72x72-precomposed.png">
-  <link rel="apple-touch-icon-precomposed" sizes="57x57" href="/apple-touch-icon-57x57-precomposed.png">
-  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="{Favicon}">
+  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="{Favicon}">
+  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="{Favicon}">
+  <link rel="apple-touch-icon-precomposed" sizes="57x57" href="{Favicon}">
+  <link rel="apple-touch-icon" href="{Favicon}" />
   <link rel="alternate" type="application/rss+xml" href="{RSS}">
 </head>
+
 <body class="push-golden">
 <!--[if lt IE 7]>
   <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
 <![endif]-->
-<section class="push-golden">
+<header class="push-golden">
+  <h1>T.P.</h1>
+</header>
+{block:Posts}
+
+{block:Text}
+<section id="{PostID}">
   <article>
-    <h3><a href="">Lorem Ipsum Dolor Sit Amet</a></h3>
-    <small>10/04/2013</small>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut ac orci non leo rutrum hendrerit sed vel sem. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Maecenas quis turpis at massa rutrum elementum. Morbi gravida est non lorem lobortis in faucibus justo consectetur. Donec nec ipsum ac arcu fringilla laoreet non sit amet nisl. Sed in ligula a purus laoreet auctor sed nec leo. Duis sit amet orci eu ipsum congue blandit ut eu eros.</p>
-    <p>Morbi auctor dui nibh. Donec id enim tortor. Aliquam convallis pellentesque mauris eu mattis. Vivamus ultricies augue ut purus convallis adipiscing venenatis odio feugiat. Vivamus mauris metus, commodo varius facilisis a, scelerisque non turpis. Curabitur et mauris in odio ornare accumsan. Morbi eu felis ipsum, id iaculis nibh. Nullam nunc enim, imperdiet vitae bibendum id, vestibulum nec sapien. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Maecenas ut diam massa. Maecenas sodales molestie nunc, in pretium velit feugiat luctus. Integer vestibulum egestas convallis.</p>
-    </p>
+    {block:Title}
+    <h3><a href="{Permalink}">{Title}</a></h3>
+    {/block:Title}
+    <small>
+      {block:RebloggedFrom}Reblogged from <a href="{ReblogParentURL}">{ReblogParentTitle}</a>{/block:RebloggedFrom}
+      {block:NotReblog}Published{/block:NotReblog}
+      on {block:Date}{DayOfWeek}, {DayOfMonth} {Month} {Year} ({TimeAgo}){/block:Date}
+    </small>
+    {Body}
     <hr>
   </article>
 </section>
+{/block:Text}
 
-<section>
+{block:Photo}
+<section id="{PostID}">
   <article>
-    <figure>
-    <img src="http://placekitten.com/500/1000/">
+    <figure class="text-center">
+    {LinkOpenTag}
+    <img src="{PhotoURL-HighRes}">
+    {LinkCloseTag}
     <figcaption>
-    <small><strong>Image | </strong> <a href="">http://placekitten.com/500/1000</a></small>
+    <small><strong>Image | </strong> <a href="{PhotoURL-HighRes}">{PhotoURL-HighRes}</a></small>
     </figcaption>
     </figure>
     <br/>
-    <small>10/04/2013</small>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut ac orci non leo rutrum hendrerit sed vel sem. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Maecenas quis turpis at massa rutrum elementum. Morbi gravida est non lorem lobortis in faucibus justo consectetur. Donec nec ipsum ac arcu fringilla laoreet non sit amet nisl. Sed in ligula a purus laoreet auctor sed nec leo. Duis sit amet orci eu ipsum congue blandit ut eu eros.</p>
+    <small>
+      {block:RebloggedFrom}Reblogged from <a href="{ReblogParentURL}">{ReblogParentTitle}</a>{/block:RebloggedFrom}
+      {block:NotReblog}Published{/block:NotReblog}
+      on {block:Date}{DayOfWeek}, {DayOfMonth} {Month} {Year} ({TimeAgo}){/block:Date}
+    </small>
+    <br/>
+    {block:Caption}
+    {Caption}
+    {/block:Caption}
     <hr>
   </article>
 </section>
+{/block:Photo}
 
+{block:Photoset}
 <section>
   <article>
     <div class="photoset-grid" data-layout="{PhotosetLayout}" data-id="photoset{PostID}">
-      <img src="{PhotoURL-500}"
-        {block:HighRes}data-highres="{PhotoURL-HighRes}"{/block:HighRes}
-        {block:Caption}alt="{Caption}"{/block:caption} />
+      {block:Photos}
+      <img src="{PhotoURL-500}" {block:HighRes}data-highres="{PhotoURL-HighRes}"{/block:HighRes} {block:Caption}alt="{Caption}"{/block:caption}>
+      {/block:Photos}
     </div><!--photoset-->
-    <figcaption>
-      <p>Caption</p>
-    </figcaption>
+    <br/>
+    <small>
+      {block:RebloggedFrom}Reblogged from <a href="{ReblogParentURL}">{ReblogParentTitle}</a>{/block:RebloggedFrom}
+      {block:NotReblog}Published{/block:NotReblog}
+      on {block:Date}{DayOfWeek}, {DayOfMonth} {Month} {Year} ({TimeAgo}){/block:Date}
+    </small>
+    {block:Caption}
+    {Caption}
+    {/block:Caption}
+    <hr>
   </article>
 </section>
+{/block:Photoset}
 
-<section>
+{block:Quote}
+<section id="{PostID}">
   <article class="pull-quote">
-    <blockquote>
-      <p>Quote</p>
+    <blockquote {block:ContentSource}cite="{SourceURL}"{/block:ContentSource}>
+      <p>{Quote}</p>
+      {block:Source}
       <cite>
-        <small>&#8212 Source</small>
+        <small>&#8212 {Source}</small>
       </cite>
+      {/block:Source}
     </blockquote>
+    <hr>
   </article>
 </section>
-
-<section>
-  <article>
-    <h3><a href={URL} {Target}>{Name}</a></h3>
-    <p>Link Description</p>
-  </article>
-</section>
+{/block:Quote}
 
 <!-- {block:Conversation} -->
 <!-- {/block:Conversation} -->
 
-<section>
-  <article>
-    <figure>
-      <img src="{AlbumArtURL}">
-      {Audio Player}
-    <h4>Track Name<small> BY </small>Artist</h4>
-    <p>Album</p>
-    <figcaption>
-      <p>Caption</p>
-    </figcaption>
-    </figure>
-  </article>
-</section>
-
-<section>
+{block:Video}
+<section id="{PostID}">
   <article>
     <figure>
     <div class="videoWrapper">
-       <iframe seamless src="https://www.youtube.com/embed/_shVskm19oc?rel=0&amp;theme=light&amp;color=white&amp;autoplay=0&amp;showinfo=0&amp;autohide=3&amp;vq=hd720" frameborder="0"></iframe>
+       {VideoEmbed-700}
     </div><!--videoWrapper-->
-    <figcaption>
-    <small><strong>Video | </strong> <a href="">https://www.youtube.com/embed/_shVskm19oc</a></small>
-    </figcaption>
     </figure>
     <br/>
-    <small>10/04/2013</small>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut ac orci non leo rutrum hendrerit sed vel sem. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Maecenas quis turpis at massa rutrum elementum. Morbi gravida est non lorem lobortis in faucibus justo consectetur. Donec nec ipsum ac arcu fringilla laoreet non sit amet nisl. Sed in ligula a purus laoreet auctor sed nec leo. Duis sit amet orci eu ipsum congue blandit ut eu eros.</p>
+    <small>
+      {block:RebloggedFrom}Reblogged from <a href="{ReblogParentURL}">{ReblogParentTitle}</a>{/block:RebloggedFrom}
+      {block:NotReblog}Published{/block:NotReblog}
+      on {block:Date}{DayOfWeek}, {DayOfMonth} {Month} {Year} ({TimeAgo}){/block:Date}
+    </small>
+    {block:Caption}
+    {Caption}{VideoEmbed-700}
+    {/block:Caption}
     <hr>
   </article>
 </section>
+{/block:Video}
+
+{/block:Posts}
 
 <footer>
-  <p class="text-center"><small>A Legless Llama Design</small></p>
+  <p class="text-center"><small>A Legless Llama Creation</small></p>
 </footer>
 
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <script src="http://static.tumblr.com/ncqdca0/So6mkxx9j/jquery.photoset-grid.min.js"></script>
 <script>
-  window.jQuery || document.write('<script src="http://static.tumblr.com/ncqdca0/kz3mkxxdj/jquery.min.js"><\/script>')
+  window.jQuery || document.write('<script src="http://static.tumblr.com/ncqdca0/kz3mkxxdj/jquery.min.js"><\/script>');
   var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
   (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
   g.src='//www.google-analytics.com/ga.js';
   s.parentNode.insertBefore(g,s)}(document,'script'));
-
   $('.photoset-grid').photosetGrid({
     highresLinks: true,
     rel: $('.photoset-grid').attr('data-id'),
-    gutter: '20px',
-
-    onComplete: function(){});
-    }
+    gutter: '20px'
   });
+  $('.videoWrapper').attr
 </script>
 </body>
 </html>
