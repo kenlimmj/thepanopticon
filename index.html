@@ -66,6 +66,7 @@
 <![endif]-->
 <header class="push-golden">
   <h1>T.P.</h1>
+  <h5>{Description}</h5>
 </header>
 {block:Posts}
 
@@ -150,8 +151,27 @@
 </section>
 {/block:Quote}
 
-<!-- {block:Conversation} -->
-<!-- {/block:Conversation} -->
+{block:Chat}
+<section id="{PostID}">
+  <article>
+    {block:Title}
+    <h3><a href="{Permalink}">{Title}</a></h3>
+    {/block:Title}
+    <small>
+      {block:RebloggedFrom}Reblogged from <a href="{ReblogParentURL}">{ReblogParentTitle}</a>{/block:RebloggedFrom}
+      {block:NotReblog}Published{/block:NotReblog}
+      on {block:Date}{DayOfWeek}, {DayOfMonth} {Month} {Year} ({TimeAgo}){/block:Date}
+    </small>
+    <dl class="lining">
+    {block:Lines}
+    <dt><b>{Name}</b></dt>
+    <dd>{Line}</dd>
+    {/block:Lines}
+    </dl>
+    <hr>
+  </article>
+</section>
+{/block:Chat}
 
 {block:Video}
 <section id="{PostID}">
@@ -168,7 +188,7 @@
       on {block:Date}{DayOfWeek}, {DayOfMonth} {Month} {Year} ({TimeAgo}){/block:Date}
     </small>
     {block:Caption}
-    {Caption}{VideoEmbed-700}
+    {Caption}
     {/block:Caption}
     <hr>
   </article>
@@ -177,8 +197,17 @@
 
 {/block:Posts}
 
-<footer>
-  <p class="text-center"><small>A Legless Llama Creation</small></p>
+<footer class="text-center">
+  {block:Pagination}
+  {block:PreviousPage}
+  <a href="{PreviousPage}"><small>Newer</small></a> |
+  {/block:PreviousPage}
+  <strong>{CurrentPage}</strong> <small>OF</small> <strong>{TotalPages}</strong>
+  {block:NextPage}
+  | <a href="{NextPage}"><small>Older</small></a>
+  {/block:NextPage}
+  {/block:Pagination}
+  <p><small>A Legless Llama Creation</small></p>
 </footer>
 
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
