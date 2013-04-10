@@ -6,49 +6,19 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>{block:SearchPage}{lang:Search results for SearchQuery} - {/block:SearchPage}{block:PostSummary}{PostSummary} - {/block:PostSummary}{Title}</title>
-  {block:Description}
-  <meta name="description" content="{MetaDescription}" />
-  {/block:Description}
+  <title>
+    {block:SearchPage}{lang:Search results for SearchQuery} - {/block:SearchPage}{block:PostSummary}{PostSummary} - {/block:PostSummary}{Title}
+  </title>
   <meta name="author" content="Lim Mingjie Kenneth">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta property="og:type" content="blog">
   <meta property="og:site_name" content="{Title}">
-  {block:PermalinkPage}
-  <meta property="og:title" content="{block:PostSummary}{PostSummary}{/block:PostSummary}" />
-  {block:Posts}
-  {block:Photo}
-  <meta property="og:image" content="{PhotoURL-75sq}">
-  {/block:Photo}
-  {block:Text}
-  <meta property="og:image" content="{PortraitURL-128}">
-  {/block:Text}
-  {block:Photoset}
-  <meta property="og:image" content="{PortraitURL-128}">
-  {/block:Photoset}
-  {block:Quote}
-  <meta property="og:image" content="{PortraitURL-128}">
-  {/block:Quote}
-  {block:Link}
-  <meta property="og:image" content="{PortraitURL-128}">
-  {/block:Link}
-  {block:Chat}
-  <meta property="og:image" content="{PortraitURL-128}">
-  {/block:Chat}
-  {block:Video}
-  <meta property="og:image" content="{PortraitURL-128}">
-  {/block:Video}
-  {/block:Posts}
-  {/block:PermalinkPage}
-  {block:IndexPage}
-  <meta property="og:title" content="{block:Description}{MetaDescription}{/block:Description}" />
-  <meta property="og:image" content="{PortraitURL-128}">
-  {/block:IndexPage}
   <link rel="dns-prefetch" href="//fonts.googleapis.com">
   <link rel="dns-prefetch" href="//static.tumblr.com">
   <link rel="dns-prefetch" href="//assets.tumblr.com">
   <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Bitter">
-  <link rel="stylesheet" href="http://static.tumblr.com/ncqdca0/8j9mkxzao/main.css">
+  <link rel="stylesheet" href="css/main.css">
+  <!-- <link rel="stylesheet" href="http://static.tumblr.com/ncqdca0/1b5mkxzhn/main.css"> -->
   <link rel="shortcut icon" href="{Favicon}">
   <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144x144-precomposed.png">
   <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/apple-touch-icon-114x114-precomposed.png">
@@ -61,148 +31,108 @@
 <!--[if lt IE 7]>
   <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
 <![endif]-->
-<section>
-  <article class="text-center">
-    <h1 class="giga">{Title}</h1>
-  </article>
-</section>
-{block:Posts}
-<section>
-{block:Text}
+<section class="push-golden">
   <article>
-    {block:Title}
-    <h3><a href="{Permalink}">{Title}</a></h3>
-    {/block:Title}
-    <p>{Body}</p>
+    <h3><a href="">Lorem Ipsum Dolor Sit Amet</a></h3>
+    <small>10/04/2013</small>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut ac orci non leo rutrum hendrerit sed vel sem. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Maecenas quis turpis at massa rutrum elementum. Morbi gravida est non lorem lobortis in faucibus justo consectetur. Donec nec ipsum ac arcu fringilla laoreet non sit amet nisl. Sed in ligula a purus laoreet auctor sed nec leo. Duis sit amet orci eu ipsum congue blandit ut eu eros.</p>
+    <p>Morbi auctor dui nibh. Donec id enim tortor. Aliquam convallis pellentesque mauris eu mattis. Vivamus ultricies augue ut purus convallis adipiscing venenatis odio feugiat. Vivamus mauris metus, commodo varius facilisis a, scelerisque non turpis. Curabitur et mauris in odio ornare accumsan. Morbi eu felis ipsum, id iaculis nibh. Nullam nunc enim, imperdiet vitae bibendum id, vestibulum nec sapien. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Maecenas ut diam massa. Maecenas sodales molestie nunc, in pretium velit feugiat luctus. Integer vestibulum egestas convallis.</p>
+    </p>
+    <hr>
   </article>
-{/block:Text}
-
-{block:Photo}
-<article class="text-center">
-  <figure>
-  {LinkOpenTag}
-  <img src="{PhotoURL-HighRes}"/>
-  {LinkCloseTag}
-  {block:Caption}
-  <figcaption>
-  {block:Exif}
-  {block:Camera}
-    <h6>{Camera}</h6>
-  {/block:Camera}
-  {block:Aperture}
-    <h6>{Aperture}</h6>
-  {/block:Aperture}
-  {block:Exposure}
-    <h6>{Exposure}</h6>
-  {/block:Exposure}
-  {block:FocalLength}
-    <h6>{FocalLength}</h6>
-  {/block:FocalLength}
-  {/block:Exif}
-  </figcaption>
-  {/block:Caption}
-  </figure>
-</article>
-{/block:Photo}
-
-{block:Photoset}
-<article>
-  <div class="photoset-grid" data-layout="{PhotosetLayout}" data-id="photoset{PostID}">
-  {block:Photos}
-    <img src="{PhotoURL-500}"
-      {block:HighRes}data-highres="{PhotoURL-HighRes}"{/block:HighRes}
-      {block:Caption}alt="{Caption}"{/block:caption} />
-  {/block:Photos}
-  </div><!--photoset-->
-  {block:Caption}
-  <figcaption>
-    <p>{Caption}</p>
-  </figcaption>
-  {/block:Caption}
-</article>
-{/block:Photoset}
-
-{block:Quote}
-<article>
-  <blockquote>
-    <p>{Quote}</p>
-    {block:Source}
-    <cite>
-      <small>{Source}</small>
-    </cite>
-    {/block:Source}
-  </blockquote>
-</article>
-{/block:Quote}
-
-{block:Link}
-<article>
-  <h3><a href={URL} {Target}>{Name}</a></h3>
-  {block:Description}
-  <p>{Description}</p>
-  {/block:Description}
-</article>
-{/block:Link}
-
-{block:Conversation}
-{/block:Conversation}
-
-{block:Audio}
-<article>
-  <figure>
-  {block:AlbumArt}
-    <img src="{AlbumArtURL}">
-  {/block:AlbumArt}
-  {block:AudioPlayer}
-    {AudioPlayer}
-  {/block:AudioPlayer}
-  <h4>{block:TrackName}{TrackName}{/block:TrackName} <small>BY</small> {block:Artist}{Artist}{/block:Artist}</h4>
-  {block:Album}<p>{Album}</p>{/block:Album}
-  {block:Caption}
-  <figcaption>
-    <p>{Caption}</p>
-  </figcaption>
-  {/block:Caption}
-  </figure>
-</article>
-{/block:Audio}
-
-{block:Video}
-<article>
-  <div class="videoWrapper wideScreen chrome_25">
-  {Video-500}
-  </div><!--videoWrapper-->
-  {block:Caption}
-  <p>{Caption}</p>
-  {/block:Caption}
-</article>
-{/block:Video}
-<aside>
-  {block:Date}
-    {block:NewDayDate}
-      <h6>{DayOfMonth} {Month} {Year}</h6>
-    {/block:NewDayDate}
-    {block:SameDayDate}
-      <h6>{DayOfMonth} {Month} {Year}</h6>
-    {/block:SameDayDate}
-  {/block:Date}
-  <h6><a href="http://twitter.com/home?status={block:PostSummary}{PostSummary} - {/block:PostSummary}{ShortURL}" target="_blank">Twitter</a></h6>
-  <h6><a href="http://www.facebook.com/sharer.php?u={Permalink}" target="_blank">Facebook</a></h6>
-  <h6>{block:RebloggedFrom}<a href="{ReblogParentURL}">{ReblogParentTitle}</a>{/block:RebloggedFrom}</h6>
-  <h6>{block:ContentSource}<a href="{SourceURL}">{SourceTitle}</a>{/block:ContentSource}</h6>
-  <h6>{block:NoteCount}<a href="{Permalink}#notes">{NoteCount} Notes</a>{/block:NoteCount}</h6>
-</aside>
 </section>
-{/block:Posts}
+
+<section>
+  <article>
+    <figure>
+    <img src="http://placekitten.com/500/1000/">
+    <figcaption>
+    <small><strong>Image | </strong> <a href="">http://placekitten.com/500/1000</a></small>
+    </figcaption>
+    </figure>
+    <br/>
+    <small>10/04/2013</small>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut ac orci non leo rutrum hendrerit sed vel sem. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Maecenas quis turpis at massa rutrum elementum. Morbi gravida est non lorem lobortis in faucibus justo consectetur. Donec nec ipsum ac arcu fringilla laoreet non sit amet nisl. Sed in ligula a purus laoreet auctor sed nec leo. Duis sit amet orci eu ipsum congue blandit ut eu eros.</p>
+    <hr>
+  </article>
+</section>
+
+<section>
+  <article>
+    <div class="photoset-grid" data-layout="{PhotosetLayout}" data-id="photoset{PostID}">
+      <img src="{PhotoURL-500}"
+        {block:HighRes}data-highres="{PhotoURL-HighRes}"{/block:HighRes}
+        {block:Caption}alt="{Caption}"{/block:caption} />
+    </div><!--photoset-->
+    <figcaption>
+      <p>Caption</p>
+    </figcaption>
+  </article>
+</section>
+
+<section>
+  <article class="pull-quote">
+    <blockquote>
+      <p>Quote</p>
+      <cite>
+        <small>&#8212 Source</small>
+      </cite>
+    </blockquote>
+  </article>
+</section>
+
+<section>
+  <article>
+    <h3><a href={URL} {Target}>{Name}</a></h3>
+    <p>Link Description</p>
+  </article>
+</section>
+
+<!-- {block:Conversation} -->
+<!-- {/block:Conversation} -->
+
+<section>
+  <article>
+    <figure>
+      <img src="{AlbumArtURL}">
+      {Audio Player}
+    <h4>Track Name<small> BY </small>Artist</h4>
+    <p>Album</p>
+    <figcaption>
+      <p>Caption</p>
+    </figcaption>
+    </figure>
+  </article>
+</section>
+
+<section>
+  <article>
+    <figure>
+    <div class="videoWrapper">
+       <iframe seamless src="https://www.youtube.com/embed/_shVskm19oc?rel=0&amp;theme=light&amp;color=white&amp;autoplay=0&amp;showinfo=0&amp;autohide=3&amp;vq=hd720" frameborder="0"></iframe>
+    </div><!--videoWrapper-->
+    <figcaption>
+    <small><strong>Video | </strong> <a href="">https://www.youtube.com/embed/_shVskm19oc</a></small>
+    </figcaption>
+    </figure>
+    <br/>
+    <small>10/04/2013</small>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut ac orci non leo rutrum hendrerit sed vel sem. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Maecenas quis turpis at massa rutrum elementum. Morbi gravida est non lorem lobortis in faucibus justo consectetur. Donec nec ipsum ac arcu fringilla laoreet non sit amet nisl. Sed in ligula a purus laoreet auctor sed nec leo. Duis sit amet orci eu ipsum congue blandit ut eu eros.</p>
+    <hr>
+  </article>
+</section>
+
 <footer>
+  <p class="text-center"><small>A Legless Llama Design</small></p>
 </footer>
+
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <script src="http://static.tumblr.com/ncqdca0/So6mkxx9j/jquery.photoset-grid.min.js"></script>
 <script>
   window.jQuery || document.write('<script src="http://static.tumblr.com/ncqdca0/kz3mkxxdj/jquery.min.js"><\/script>')
   var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
   (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
-  g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+  g.src='//www.google-analytics.com/ga.js';
   s.parentNode.insertBefore(g,s)}(document,'script'));
 
   $('.photoset-grid').photosetGrid({

@@ -3,15 +3,14 @@
 @import "neat/neat-helpers";
 
 // User Variables
-$screen-width:    1440; // Optimal/chosen screen-width
-$screen-columns:  17; // Number of columns spanning screen-width (gutters count as columns for this one)
-$margin-columns:  3; // Number of columns to use for the margin
+$screen-width:    1280; // Optimal/chosen screen-width
+$screen-columns:  16; // Number of columns spanning screen-width (gutters count as columns for this one)
 
 // Change the grid settings
 $column: em($screen-width/$screen-columns); // Calculates the size of each column assuming no gutter
 $gutter: $column; // Creates a gutter equal to the width of the column
-$grid-columns: ($screen-columns - ($margin-columns*2) + 1)/2; // Calculates the real number of columns needed
-$max-width: $column*($screen-columns - $grid-columns); // Implements the Guternberg page construction canon
+$grid-columns: $screen-columns;
+$max-width: $column*$grid-columns;
 
 // Define your breakpoints
 $mobile:    new-breakpoint(max-width em(639));
