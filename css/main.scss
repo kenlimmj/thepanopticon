@@ -5,8 +5,8 @@
 @import "settings"; // Grid settings for Twoface and Neat
 
 //// LIBRARIES ////
-@import "bourbon/bourbon";                        // Bourbon mixins
-@import "neat/neat";                              // Bourbon Neat mixins
+@import "../components/bourbon/app/assets/stylesheets/bourbon";                        // Bourbon mixins
+@import "../components/neat/app/assets/stylesheets/neat";                              // Bourbon Neat mixins
 @import "layout";                                 // Twoface grid layout logic and classes
 @import "../components/typeplate/scss/typeplate"; // Typeplate mixins, logic and classes
 @import "tumblr";                                 // Tumblr color scheme and specifics

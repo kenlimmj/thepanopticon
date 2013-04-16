@@ -335,7 +335,7 @@ $stats-border-style: 0.125rem solid #ccc;
 				}
 			}
 			&:before {
-					content: ": ";
+					// content: ": ";
 					margin-left: -0.2rem; //removes extra space between the dt and the colon
 			}
 		}
@@ -671,12 +671,12 @@ h6 {
 		font-size: $font-size;
 	}
 	&:before {
-		content: '“';
+		content: open-quote;
 		top:  0em;
 		left: 0em;
 	}
 	&:after {
-		content: '”';
+		content: close-quote;
 		bottom: 0em;
 		right: 0em;
 	}

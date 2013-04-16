@@ -50,7 +50,7 @@
   <link rel="dns-prefetch" href="//static.tumblr.com">
   <link rel="dns-prefetch" href="//assets.tumblr.com">
   <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Bitter">
-  <link rel="stylesheet" href="http://static.tumblr.com/ncqdca0/kEpml1j4k/main.css">
+  <link rel="stylesheet" href="http://static.tumblr.com/ncqdca0/vmnmlag4t/main.css">
   <link rel="shortcut icon" href="{Favicon}">
   <link rel="apple-touch-icon-precomposed" sizes="144x144" href="{Favicon}">
   <link rel="apple-touch-icon-precomposed" sizes="114x114" href="{Favicon}">
@@ -164,7 +164,9 @@
     </small>
     <dl class="lining">
     {block:Lines}
-    <dt><b>{Name}</b></dt>
+    {block:Label}
+    <dt><b>{Label}</b></dt>
+    {/block:Label}
     <dd>{Line}</dd>
     {/block:Lines}
     </dl>
