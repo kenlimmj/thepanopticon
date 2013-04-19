@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
@@ -46,11 +45,8 @@
   <meta property="og:image" content="{PortraitURL-128}">
   {/block:IndexPage}
   <meta property="og:site_name" content="{Title}">
-  <link rel="dns-prefetch" href="//fonts.googleapis.com">
-  <link rel="dns-prefetch" href="//static.tumblr.com">
-  <link rel="dns-prefetch" href="//assets.tumblr.com">
   <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Bitter">
-  <link rel="stylesheet" href="http://static.tumblr.com/ncqdca0/vmnmlag4t/main.css">
+  <link rel="stylesheet" href="http://static.tumblr.com/ncqdca0/Kximli9vg/main.css">
   <link rel="shortcut icon" href="{Favicon}">
   <link rel="apple-touch-icon-precomposed" sizes="144x144" href="{Favicon}">
   <link rel="apple-touch-icon-precomposed" sizes="114x114" href="{Favicon}">
@@ -60,16 +56,29 @@
   <link rel="alternate" type="application/rss+xml" href="{RSS}">
 </head>
 
-<body class="push-golden">
+<body>
 <!--[if lt IE 7]>
   <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
 <![endif]-->
+{block:HasPages}
+<nav>
+  <span>&#9776 Menu</span>
+  <menu type="list">
+    <li><a href="http://pyaeronrg.tumblr.com/">Home</a></li>
+    {block:Pages}
+    <li><a href="{URL}">{Label}</a></li>
+    {/block:Pages}
+  </menu>
+</nav>
+{/block:HasPages}
+<main>
 <header class="push-golden">
-  <h1>T.P.</h1>
-  <h5>{Description}</h5>
+  <hgroup>
+    <h1><a href="http://pyaeronrg.tumblr.com/">T.P.</a></h1>
+    <h5>{Description}</h5>
+  </hgroup>
 </header>
 {block:Posts}
-
 {block:Text}
 <section id="{PostID}">
   <article>
@@ -86,7 +95,6 @@
   </article>
 </section>
 {/block:Text}
-
 {block:Photo}
 <section id="{PostID}">
   <article>
@@ -94,9 +102,6 @@
     {LinkOpenTag}
     <img src="{PhotoURL-HighRes}">
     {LinkCloseTag}
-    <figcaption>
-    <small><strong>Image | </strong> <a href="{PhotoURL-HighRes}">{PhotoURL-HighRes}</a></small>
-    </figcaption>
     </figure>
     <br/>
     <small>
@@ -112,7 +117,6 @@
   </article>
 </section>
 {/block:Photo}
-
 {block:Photoset}
 <section>
   <article>
@@ -134,7 +138,6 @@
   </article>
 </section>
 {/block:Photoset}
-
 {block:Quote}
 <section id="{PostID}">
   <article class="pull-quote">
@@ -150,7 +153,6 @@
   </article>
 </section>
 {/block:Quote}
-
 {block:Chat}
 <section id="{PostID}">
   <article>
@@ -174,7 +176,6 @@
   </article>
 </section>
 {/block:Chat}
-
 {block:Video}
 <section id="{PostID}">
   <article>
@@ -196,9 +197,7 @@
   </article>
 </section>
 {/block:Video}
-
 {/block:Posts}
-
 <footer class="text-center">
   {block:Pagination}
   {block:PreviousPage}
@@ -211,7 +210,7 @@
   {/block:Pagination}
   <p><small>A Legless Llama Creation</small></p>
 </footer>
-
+</main>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <script src="http://static.tumblr.com/ncqdca0/So6mkxx9j/jquery.photoset-grid.min.js"></script>
 <script>
@@ -225,7 +224,6 @@
     rel: $('.photoset-grid').attr('data-id'),
     gutter: '20px'
   });
-  $('.videoWrapper').attr
 </script>
 </body>
 </html>

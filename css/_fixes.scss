@@ -18,11 +18,13 @@
     text-shadow: none;
 }
 
-// Increases the clickable area around paragraph links
-p a {
-    margin: -.5em;
-    padding: .5em;
-    position: relative;
+// Increases the clickable area around paragraph links for mobile devices
+@include media($mobile) {
+  p a {
+      margin: -.5em;
+      padding: .5em;
+      position: relative;
+  }
 }
 
 // Adds a nice fade effect to links
@@ -32,6 +34,7 @@ a {
        -o-transition: 0.15s color ease;
           transition: 0.15s color ease;
   text-decoration: none !important;
+  font-weight: bold;
 }
 
 // Fixes iOS Textarea rendering problem

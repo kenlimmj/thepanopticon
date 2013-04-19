@@ -1,0 +1,65 @@
+$menu-width: em(200); // User-defined menu width. This is entirely arbitrary
+$trigger-region: em(100); // Size of the region on the side of the screen which triggers the menu on mouseover
+
+nav {
+  float:left; // Docks the menu to the left edge of the screen
+  position: fixed; // Prevents the menu from physically occupying space, and keeps it in view even on scroll
+  width: $menu-width+$trigger-region; // Sets the width of the menu
+  @include box-sizing(border-box); // Sets border-box sizing so our borders and margins keep within our width
+
+  height: 100%; // Stretches the menu to the full height of the screen so backgrounds look good
+  max-height: 100%; // Prevents the menu from stretching beyond the screen height
+  overflow-y: auto; // Allows menu items to scroll within the menu if they get that far
+  -webkit-overflow-scrolling: touch; // Switches the menu trigger to touch instead of hover on mobile devices
+  -webkit-transform-style: preserve-3d; // Trick to prevent webkit related flickering during CSS animations
+  @include transition(all 500ms $ease-out-back); // Tells the browser to monitor and tween the menu position change
+  @include transform(translateX(-$menu-width)); // Shifts the box off the screen using translate (instead of position) so we avoid repaints
+
+  & menu  {
+    list-style: none; // Prevents fugly list bullets from showing up
+    padding:0;
+
+    & a {
+      text-decoration: none; // Removes underlines from links because this is supposed to be a menu
+    }
+    & li {
+      padding-left: 1rem;
+      padding-top:0.25em;
+      padding-bottom:0.25em;
+    }
+    & li.active {
+      font-weight: bold; // Differentiates the active menu item by bolding it
+    }
+  }
+
+  & span {
+    position: absolute;
+    top: 50%; // Pushes the menu indicator down to the center of the page
+    left: $menu-width+em(10); // Brings the menu indicator back onscreen with a 10px pad from the screen edge
+  }
+
+  &:hover {
+    @include transform(translate3D(0,0,0)); // Hack to trigger the system GPU (if any) to assist and smoothen the 2D transform
+    @include transform(translateX(0)); // Moves the menu back onto the screen on hover
+
+    & span {
+      @include transition(opacity 300ms linear); // Tells the browser to monitor and animate the menu indicator
+      opacity: 0; // Sets the opacity of the menu indicator to zero so we get a fade animation
+    }
+
+    &+main {
+      @include transition(all 500ms $ease-out-back); // Tells the browser to monitor and tween the menu position change
+      @include transform(translateX($menu-width)); // Moves the main body content to the right when the menu appears
+      opacity: 0.2;
+
+    }
+  }
+
+  &:not(:hover) {
+    &+main {
+      @include transform(translate3D(0,0,0)); // Hack to trigger the system GPU (if any) to assist and smoothen the 2D transform
+      @include transition(all 500ms $ease-out-back); // Tells the browser to monitor and tween the body content position change
+      @include transform(translateX(0)); // Moves the main body content back to the left when the menu hides
+    }
+  }
+}
