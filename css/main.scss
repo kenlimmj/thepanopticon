@@ -10,7 +10,7 @@
 @import "layout";                                 // Twoface grid layout logic and classes
 @import "../components/typeplate/scss/typeplate"; // Typeplate mixins, logic and classes
 @import "tumblr";                                 // Tumblr color scheme and specifics
-@import "hamburger";                              // Slide-in permalink page navigation
+@import "../components/hamburger/scss/hamburger"; // Slide-in permalink page navigation
 
 //// OVERRIDES ////
 @import "images";     // Project-specific image settings
