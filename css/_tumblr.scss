@@ -94,3 +94,10 @@ menu {
     display: none;
   }
 }
+
+ol li {
+  margin-bottom: 1.5em;
+  &:last-child {
+    margin-bottom: 0;
+  }
+}

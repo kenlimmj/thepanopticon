@@ -2,15 +2,16 @@
 
 //// CONFIG VARS ////
 @import "mixins";   // Project-specific mixins
-@import "settings"; // Grid settings for Twoface and Neat
+@import "settings"; // Grid settings for Twoface and Cloak
 
 //// LIBRARIES ////
-@import "../components/bourbon/app/assets/stylesheets/bourbon";                        // Bourbon mixins
-@import "../components/neat/app/assets/stylesheets/neat";                              // Bourbon Neat mixins
-@import "layout";                                 // Twoface grid layout logic and classes
-@import "../components/typeplate/scss/typeplate"; // Typeplate mixins, logic and classes
-@import "tumblr";                                 // Tumblr color scheme and specifics
-@import "../components/hamburger/scss/hamburger"; // Slide-in permalink page navigation
+@import "../components/bourbon/app/assets/stylesheets/bourbon"; // Bourbon mixins
+@import "../components/neat/app/assets/stylesheets/neat";       // Bourbon Neat mixins
+@import "layout";                                               // Twoface grid layout logic and classes
+@import "../components/typeplate/scss/typeplate";               // Typeplate mixins, logic and classes
+@import "tumblr";                                               // Tumblr color scheme and specifics
+@import "../components/hamburger/scss/hamburger";               // Slide-in permalink page navigation
+@import "../components/cloak/scss/cloak";                       // Form-field theming
 
 //// OVERRIDES ////
 @import "images";     // Project-specific image settings

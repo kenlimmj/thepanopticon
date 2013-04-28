@@ -1,0 +1,25 @@
+{
+  "name": "cloak",
+  "version": "0.0.0",
+  "main": [
+    "./scss/_cloak.scss"
+  ],
+  "dependencies": {
+    "bourbon": "~3.1.4"
+  },
+  "ignore": [
+    ".gitignore",
+    "*.md",
+    "docs/"
+  ],
+  "gitHead": "112e54e217c9e6fddcf32d76213f751657784d3f",
+  "readme": "cloak\n=====",
+  "readmeFilename": "README.md",
+  "_id": "cloak@1.0.0",
+  "description": "cloak =====",
+  "commit": "112e54e217c9e6fddcf32d76213f751657784d3f",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/kenlimmj/cloak.git"
+  }
+}
