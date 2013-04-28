@@ -44,3 +44,30 @@ textarea[contenteditable] { -webkit-appearance: none; }
 textarea {
     resize: vertical;
 }
+
+// Redefine the typeplate pull-quotes mixin to fix the unicode rendering problem
+@mixin pull-quotes($font-size, $opacity) {
+  position: relative;
+  padding: ems($font-size, $font-size);
+  &:before,
+  &:after {
+    height: ems($font-size, $font-size);
+    opacity: $opacity;
+    position: absolute;
+    font-size: $font-size;
+  }
+  &:before {
+    content: open-quote;
+    top:  0;
+    left: 0;
+  }
+  &:after {
+    content: close-quote;
+    bottom: 0;
+    right: 0;
+  }
+}
+
+.pull-quote {
+  @include pull-quotes(4em, .15);
+}

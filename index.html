@@ -46,7 +46,8 @@
   {/block:IndexPage}
   <meta property="og:site_name" content="{Title}">
   <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Bitter">
-  <link rel="stylesheet" href="http://static.tumblr.com/ncqdca0/3r7mllf5o/main.css">
+  <!-- <link rel="stylesheet" href="css/main.css"> -->
+  <link rel="stylesheet" href="http://static.tumblr.com/ncqdca0/qYHmlyayf/main.css">
   <link rel="shortcut icon" href="{Favicon}">
   <link rel="apple-touch-icon-precomposed" sizes="144x144" href="{Favicon}">
   <link rel="apple-touch-icon-precomposed" sizes="114x114" href="{Favicon}">
@@ -62,9 +63,9 @@
 <![endif]-->
 {block:HasPages}
 <nav>
-  <span>&#9776 Menu</span>
-  <menu type="list">
-    <h3 style="padding-top: 3.09023rem; padding-left:1rem">Menu</h3>
+  <span class="menu">&#9776 <span class="hidden-mobile">Menu</span></span>
+  <menu type="list" class="push-golden">
+    <h1>Menu</h1>
     <li><a href="http://pyaeronrg.tumblr.com/">Home</a></li>
     {block:Pages}
     <li><a href="{URL}">{Label}</a></li>
